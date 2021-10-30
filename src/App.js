@@ -1,13 +1,12 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StatusBar, Text} from 'react-native';
+import Pomodoro from './pages/Pomodoro';
 
 const App = () => {
   return (
     <SafeAreaView>
       <StatusBar barStyle={'light-content'} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <Text>TrainnerBrains</Text>
-      </ScrollView>
+      <Pomodoro />
     </SafeAreaView>
   );
 };
