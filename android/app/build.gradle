@@ -216,6 +216,7 @@ dependencies {
         implementation jscFlavor
     }
     compile project(':react-native-vector-icons')
+    compile project(':react-native-splash-screen')
 
 }
 
