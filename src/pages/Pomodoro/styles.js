@@ -8,12 +8,6 @@ export const Container = styled.SafeAreaView`
   background-color: #edf5f7;
 `;
 
-export const Timer = styled.Text`
-  font-size: 32px;
-  font-weight: 700;
-  color: #0c4b93;
-`;
-
 export const Status = styled.Text`
   font-size: 32px;
   font-weight: 700;
