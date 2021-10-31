@@ -25,7 +25,7 @@ const Pomodoro = () => {
     const timer = setInterval(() => {
       status && setCurrentTime(currentTime => currentTime - 1);
       currentTime === 0 && clearInterval(timer);
-    }, 1);
+    }, 1000);
     setTimer(timer);
   };
 
