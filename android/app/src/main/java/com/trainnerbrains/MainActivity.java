@@ -14,6 +14,7 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "TrainnerBrains";
   }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     SplashScreen.show(this);

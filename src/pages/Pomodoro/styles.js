@@ -6,6 +6,7 @@ export const Container = styled.SafeAreaView`
   justify-content: space-around;
   align-items: center;
   background-color: #edf5f7;
+  padding: 30px;
 `;
 
 export const Status = styled.Text`
