@@ -9,6 +9,27 @@ export const Container = styled.SafeAreaView`
   padding: 0 30px;
 `;
 
+export const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const TextLogoLight = styled.Text`
+  font-size: 32px;
+  font-weight: 900;
+  color: #2283d8;
+`;
+
+export const TextLogoDark = styled.Text`
+  margin-left: 2px;
+  font-size: 32px;
+  font-weight: 900;
+  color: #1a4384;
+`;
+
+export const ImageContainer = styled.ImageBackground``;
+
 export const Next = styled.TouchableOpacity`
   justify-items: center;
   align-items: center;
