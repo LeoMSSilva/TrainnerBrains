@@ -4,6 +4,7 @@ import Title from '../../components/Title';
 import SubTitle from '../../components/SubTitle';
 import Timer from '../../components/Timer';
 import * as Styled from './styles';
+import ButtonGoBack from '../../components/ButtonGoBack';
 
 const Pomodoro = () => {
   const [status, setStatus] = useState(true);
@@ -45,6 +46,7 @@ const Pomodoro = () => {
 
   return (
     <Styled.Container>
+      <ButtonGoBack />
       <Title text="Para seu treino recomendamos" />
       <SubTitle text="Pomodoro" />
       <ButtonPlayer name={status ? 'play' : 'pause'} onPress={handlePomodoro} />
