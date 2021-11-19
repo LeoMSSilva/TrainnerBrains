@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ButtonPlayer from '../../components/ButtonPlayer';
 import Title from '../../components/Title';
-import SubTitle from '../../components/SubTitle';
 import Timer from '../../components/Timer';
 import * as Styled from './styles';
 import ButtonGoBack from '../../components/ButtonGoBack';
@@ -46,10 +45,15 @@ const Pomodoro = () => {
 
   return (
     <Styled.Container>
-      <ButtonGoBack />
-      <Title text="Para seu treino recomendamos" />
-      <SubTitle text="Pomodoro" />
-      <ButtonPlayer name={status ? 'play' : 'pause'} onPress={handlePomodoro} />
+      <Styled.Row>
+        <ButtonGoBack />
+        <Title text="PomoTrainner" />
+      </Styled.Row>
+      <ButtonPlayer
+        size={200}
+        name={status ? 'play' : 'pause'}
+        onPress={handlePomodoro}
+      />
       <Timer text={currentTime} />
       <Styled.Status>
         {positionTimer % 2 === 0 ? 'Focus' : 'Pause'}

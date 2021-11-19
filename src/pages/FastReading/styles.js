@@ -8,7 +8,6 @@ export const Container = styled.SafeAreaView`
   background-color: #edf5f7;
   padding: 30px 10px;
   margin: 30px 0px;
-
 `;
 
 export const Row = styled.View`
@@ -17,10 +16,4 @@ export const Row = styled.View`
   justify-content: space-around;
   align-items: center;
   padding: 0px 10px;
-`;
-
-export const Status = styled.Text`
-  font-size: 32px;
-  font-weight: 700;
-  color: #0c4b93;
 `;
