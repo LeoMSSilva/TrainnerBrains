@@ -9,35 +9,43 @@ import * as Styled from './styles';
 
 const FastReading = () => {
   const [status, setStatus] = useState(true);
-  const [time, setTime] = useState(1);
-  const [text, setText] = useState('Texto de exemplo');
+  const [text, setText] = useState(
+    'Texto de exemplo usando o alfabeto com tamanho de 37 palavras: a b c d e f g h i j k l m n o p q r s t u v w x y z',
+  );
   const [words, setWords] = useState([]);
   const [currentWord, setCurrentWord] = useState(' ');
-  const [positionWordInWords, setPositionWordInWords] = useState(0);
+  const [amountOfWords, setAmountOfWords] = useState(300);
+  const [timeWordRead, setTimeWordRead] = useState(0);
+  const [positionOfArray, setPositionOfArray] = useState(0);
 
-  useEffect(() => setWords(text.split(' ')), [text]);
+  const isFinalWords = () => positionOfArray < words.length;
 
   const nextPositionArray = () => {
     const interval = setInterval(() => {
-      setCurrentWord(words[positionWordInWords]);
-      console.log('currentWord ' + currentWord);
-      console.log('positionWordInWords ' + positionWordInWords);
-      positionWordInWords < words.length &&
-        setPositionWordInWords(positionWordInWords + 1);
+      !status && setCurrentWord(words[positionOfArray]);
+      !status && isFinalWords && setPositionOfArray(positionOfArray + 1);
       clearInterval(interval);
-    }, time * 1000);
+    }, timeWordRead);
   };
 
   const handleRead = () => {
     setStatus(!status);
-    setPositionWordInWords(0);
+    setPositionOfArray(0);
     nextPositionArray();
   };
 
-  //next time pomodoro
+  //assemble word array
+  useEffect(() => setWords(text.split(' ')), [text]);
+
+  //time calculation
   useEffect(() => {
-    !status && positionWordInWords < words.length && nextPositionArray();
-  }, [positionWordInWords]);
+    setTimeWordRead((60 / amountOfWords) * 1000);
+  }, [amountOfWords]);
+
+  //next position of array
+  useEffect(() => {
+    !status && isFinalWords && nextPositionArray();
+  }, [positionOfArray]);
 
   return (
     <Styled.Container>
@@ -46,19 +54,28 @@ const FastReading = () => {
         <Title text="FastReadingTrainner" />
       </Styled.Row>
       {status ? (
-        <Input
-          placeholder="Cole aqui o texto"
-          setValue={setText}
-          value={text}
-        />
+        <Styled.Col>
+          <Styled.TextInput>Cole aqui seu texto:</Styled.TextInput>
+          <Input
+            placeholder="Cole aqui o texto"
+            setValue={setText}
+            value={text}
+          />
+        </Styled.Col>
       ) : (
         <TextRead text={currentWord} />
       )}
-      <ButtonPlayer
-        size={70}
-        name={status ? 'play' : 'pause'}
-        onPress={handleRead}
-      />
+      <Styled.Col>
+        <ButtonPlayer
+          size={70}
+          name={status ? 'play' : 'pause'}
+          onPress={handleRead}
+        />
+        <Styled.ColWPM>
+          <Styled.WordsPerMinute>Controle de PPM</Styled.WordsPerMinute>
+          <SpeedControl setValue={setAmountOfWords} value={amountOfWords} />
+        </Styled.ColWPM>
+      </Styled.Col>
     </Styled.Container>
   );
 };
