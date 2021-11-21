@@ -30,12 +30,13 @@ const FastReading = () => {
 
   const handleRead = () => {
     setStatus(!status);
+    setPositionWordInWords(0);
     nextPositionArray();
   };
 
   //next time pomodoro
   useEffect(() => {
-    positionWordInWords < words.length && nextPositionArray();
+    !status && positionWordInWords < words.length && nextPositionArray();
   }, [positionWordInWords]);
 
   return (
