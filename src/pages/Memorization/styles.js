@@ -16,3 +16,15 @@ export const Row = styled.View`
   align-items: center;
   padding: 0px 10px;
 `;
+
+export const Col = styled.View`
+  width: 100%;
+  align-items: center;
+`;
+
+export const Text = styled.Text`
+  font-size: 32px;
+  font-weight: 900;
+  color: #0c4b93;
+  margin-bottom: 20px;
+`;
