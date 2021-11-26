@@ -7,7 +7,7 @@ import * as Styled from './styles';
 const Welcome = () => {
   const navigation = useNavigation();
   const handleNavigation = () => {
-    navigation.navigate('Pomodoro');
+    navigation.navigate('SelectTraining');
   };
   return (
     <Styled.Container>
