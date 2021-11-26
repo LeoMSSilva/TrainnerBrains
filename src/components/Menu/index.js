@@ -11,7 +11,7 @@ const Menu = ({edit, setEdit, test, setTest, revision, setRevision}) => {
   const handleTest = () => {
     if (test) {
       setTest(false);
-      setText3('Finalizar');
+      setText3('Revisar');
     } else if (revision) {
       setRevision(false);
       setText3('Testar');
