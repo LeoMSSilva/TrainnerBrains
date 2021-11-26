@@ -9,9 +9,9 @@ const SelectTraining = () => {
       <Title text={`O que vamos \n treinar agora?`} />
       <Styled.Col>
         <SelectorButton text="Foco e concetração" screen="Pomodoro" />
-        {/* <SelectorButton text="Cronograma de estudos" screen="FastReading" /> */}
+        {/* <SelectorButton text="Cronograma de estudos" screen="StudySchedule" /> */}
         {/* <SelectorButton text="Memorização" screen="Memorization" /> */}
-        <SelectorButton text="Velocidade de leitura" screen="StudySchedule" />
+        <SelectorButton text="Velocidade de leitura" screen="FastReading" />
       </Styled.Col>
     </Styled.Container>
   );
