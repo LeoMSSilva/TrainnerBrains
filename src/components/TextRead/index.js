@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Styled from "./styles";
 
-const SubTitle = ({text}) => {
+const TextRead = ({text}) => {
   return (
     <>
       <Styled.Text>{text}</Styled.Text>
@@ -9,4 +9,4 @@ const SubTitle = ({text}) => {
   );
 };
 
-export default SubTitle;
+export default TextRead;

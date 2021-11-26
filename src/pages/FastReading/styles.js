@@ -8,7 +8,6 @@ export const Container = styled.SafeAreaView`
   background-color: #edf5f7;
   padding: 30px 10px;
   margin: 30px 0px;
-
 `;
 
 export const Row = styled.View`
@@ -19,8 +18,26 @@ export const Row = styled.View`
   padding: 0px 10px;
 `;
 
-export const Status = styled.Text`
-  font-size: 32px;
-  font-weight: 700;
+export const Col = styled.View`
+  width: 100%;
+  align-items: center;
+`;
+
+export const ColWPM = styled.View`
+  width: 200px;
+  align-items: center;
+`;
+
+export const TextInput = styled.Text`
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #0c4b93;
+`;
+
+export const WordsPerMinute = styled.Text`
+  margin: 10px 0px;
+  font-size: 18px;
+  font-weight: 900;
   color: #0c4b93;
 `;
