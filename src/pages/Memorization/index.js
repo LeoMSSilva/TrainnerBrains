@@ -4,30 +4,32 @@ import Card from '../../components/Card';
 import Pagination from '../../components/Pagination';
 import Title from '../../components/Title';
 import Menu from '../../components/Menu';
+import Test from '../../components/Test';
 import * as Styled from './styles';
 
 const Memorization = () => {
   const [edit, setEdit] = useState(true);
-  const [test, setTest] = useState(false);
+  const [test, setTest] = useState(true);
   const [revision, setRevision] = useState(false);
-
   const [isQuestion, setIsQuestion] = useState(true);
   const [position, setPosition] = useState(1);
-
-  const [questions, setQuestions] = useState(Array(10));
-  const [answers, setAnswers] = useState(Array(10));
-  const [hits, setHits] = useState(Array(10));
+  const [questions, setQuestions] = useState(Array(10).fill(undefined));
+  const [answers, setAnswers] = useState(Array(10).fill(undefined));
+  const [hits, setHits] = useState(Array(10).fill(undefined));
   const [currentValue, setCurrentValue] = useState(undefined);
+  const [hitOrMiss, setHitOrMiss] = useState(undefined);
 
   //enable test
   useEffect(() => {
-    if (
-      answers.every(answer => answer !== undefined) &&
-      questions.every(question => question !== undefined)
-    )
-      setTest(true);
+    if (answers.every(answer => answer !== undefined)) setTest(true);
     else setTest(false);
-  }, [questions, answers]);
+  }, [answers]);
+
+  //enable revision
+  useEffect(() => {
+    if (hits.every(hit => hit !== undefined)) setRevision(true);
+    else setRevision(false);
+  }, [hits]);
 
   //update edit or not edit card
   useEffect(() => {
@@ -42,7 +44,7 @@ const Memorization = () => {
         );
   }, [edit]);
 
-  //increment array questions, answers
+  //increment arrays questions, answers, hits
   const incrementArray = (currentValue, array, setArray) => {
     const newValue = [...array];
     newValue[position - 1] = currentValue;
@@ -57,6 +59,18 @@ const Memorization = () => {
         ? `Digite a pergunta ${position}`
         : `Digite a resposta da pergunta ${position}`
       : value;
+
+  useEffect(() => {
+    console.log('hits ' + hits);
+    console.log('currentValue ' + hitOrMiss);
+    incrementArray(hitOrMiss, hits, setHits);
+    if (hitOrMiss != undefined && position < 10) {
+      setTimeout(() => {
+        setIsQuestion(!isQuestion);
+        setPosition(position + 1);
+      }, 500);
+    }
+  }, [hitOrMiss]);
 
   return (
     <Styled.Container>
@@ -89,6 +103,9 @@ const Memorization = () => {
           onPress={() => setIsQuestion(!isQuestion)}
         />
         <Pagination setValue={setPosition} value={position} />
+        {!isQuestion && test && (
+          <Test value={hits[position - 1]} setValue={setHitOrMiss} />
+        )}
       </Styled.Col>
 
       <Menu
