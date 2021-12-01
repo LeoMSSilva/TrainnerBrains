@@ -3,7 +3,6 @@ import * as Styled from './styles';
 
 const Test = ({value, setValue}) => {
   const hadleClick = value => setValue(value);
-  console.log('valor dentro ' + value);
   return (
     <Styled.Container>
       <Styled.Row>

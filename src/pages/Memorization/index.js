@@ -13,8 +13,8 @@ const Memorization = () => {
   const [revision, setRevision] = useState(false);
   const [isQuestion, setIsQuestion] = useState(true);
   const [position, setPosition] = useState(1);
-  const [questions, setQuestions] = useState(Array(10).fill(undefined));
-  const [answers, setAnswers] = useState(Array(10).fill(undefined));
+  const [questions, setQuestions] = useState(Array(10).fill('undefined'));
+  const [answers, setAnswers] = useState(Array(10).fill('undefined'));
   const [hits, setHits] = useState(Array(10).fill(undefined));
   const [currentValue, setCurrentValue] = useState(undefined);
   const [hitOrMiss, setHitOrMiss] = useState(undefined);
@@ -60,9 +60,7 @@ const Memorization = () => {
         : `Digite a resposta da pergunta ${position}`
       : value;
 
-  useEffect(() => {
-    console.log('hits ' + hits);
-    console.log('currentValue ' + hitOrMiss);
+  const handleHitOrMiss = hitOrMiss => {
     incrementArray(hitOrMiss, hits, setHits);
     if (hitOrMiss != undefined && position < 10) {
       setTimeout(() => {
@@ -70,7 +68,7 @@ const Memorization = () => {
         setPosition(position + 1);
       }, 500);
     }
-  }, [hitOrMiss]);
+  };
 
   return (
     <Styled.Container>
@@ -104,7 +102,7 @@ const Memorization = () => {
         />
         <Pagination setValue={setPosition} value={position} />
         {!isQuestion && test && (
-          <Test value={hits[position - 1]} setValue={setHitOrMiss} />
+          <Test value={hits[position - 1]} setValue={handleHitOrMiss} />
         )}
       </Styled.Col>
 
