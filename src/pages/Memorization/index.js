@@ -9,15 +9,44 @@ import * as Styled from './styles';
 
 const Memorization = () => {
   const [edit, setEdit] = useState(true);
-  const [test, setTest] = useState(true);
+  const [test, setTest] = useState(false);
+
   const [revision, setRevision] = useState(false);
   const [isQuestion, setIsQuestion] = useState(true);
   const [position, setPosition] = useState(1);
-  const [questions, setQuestions] = useState(Array(10).fill(undefined));
-  const [answers, setAnswers] = useState(Array(10).fill(undefined));
+
+  const [questions, setQuestions] = useState(Array(10).fill('abc1'));
+  const [answers, setAnswers] = useState(Array(10).fill('abc2'));
   const [hits, setHits] = useState(Array(10).fill(undefined));
+
   const [currentValue, setCurrentValue] = useState(undefined);
-  const [hitOrMiss, setHitOrMiss] = useState(undefined);
+
+  // //enable test
+  // useEffect(() => {
+
+  //   const salveTreino = ()=>{
+  //     const test = {
+  //       questions,
+  //       answers,
+  //       hits,
+  //     };
+
+  //     const fommatedTest = JSON.stringify(test);
+
+  //     AsyncStorage.set('@MemorizationTrainer', fommatedTest);
+  //   }
+
+  //   const bootstrap = async () => {
+  //     const lastTestRaw = AsyncStorage.get('@MemorizationTrainer');
+  //     const lastTest = JSON.parse(lastTestRaw);
+
+  //     setHits(lastTest.hits);
+  //     setAnswers(lastTest.answers);
+  //     setQuestions(lastTest.questions);
+
+  //     AsyncStorage.remove('@MemorizationTrainer');
+  //   };
+  // }, []);
 
   //enable test
   useEffect(() => {
@@ -45,10 +74,10 @@ const Memorization = () => {
   }, [edit]);
 
   //increment arrays questions, answers, hits
-  const incrementArray = (currentValue, array, setArray) => {
-    const newValue = [...array];
-    newValue[position - 1] = currentValue;
-    setArray(newValue);
+  const incrementArray = (newValue, array, setArray) => {
+    const newArray = [...array];
+    newArray[position - 1] = newValue;
+    setArray(newArray);
     setCurrentValue(undefined);
   };
 
@@ -60,9 +89,8 @@ const Memorization = () => {
         : `Digite a resposta da pergunta ${position}`
       : value;
 
-  useEffect(() => {
-    console.log('hits ' + hits);
-    console.log('currentValue ' + hitOrMiss);
+  // _hitOrMiss recebe true || false
+  const handleHitOrMiss = hitOrMiss => {
     incrementArray(hitOrMiss, hits, setHits);
     if (hitOrMiss != undefined && position < 10) {
       setTimeout(() => {
@@ -70,7 +98,7 @@ const Memorization = () => {
         setPosition(position + 1);
       }, 500);
     }
-  }, [hitOrMiss]);
+  };
 
   return (
     <Styled.Container>
@@ -104,7 +132,10 @@ const Memorization = () => {
         />
         <Pagination setValue={setPosition} value={position} />
         {!isQuestion && test && (
-          <Test value={hits[position - 1]} setValue={setHitOrMiss} />
+          <Test
+            isCorrection={hits[position - 1]}
+            onClickCorrection={handleHitOrMiss}
+          />
         )}
       </Styled.Col>
 

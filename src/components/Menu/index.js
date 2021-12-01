@@ -8,6 +8,7 @@ const Menu = ({edit, setEdit, test, setTest, revision, setRevision}) => {
     setText2(text2 == 'Salvar' ? 'Editar' : 'Salvar');
     setEdit(!edit);
   };
+
   const handleTest = () => {
     if (test) {
       setTest(false);
