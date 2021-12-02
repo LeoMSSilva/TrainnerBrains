@@ -5,6 +5,7 @@ import Pagination from '../../components/Pagination';
 import Title from '../../components/Title';
 import Menu from '../../components/Menu';
 import Test from '../../components/Test';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Styled from './styles';
 
 const Memorization = () => {
@@ -13,16 +14,47 @@ const Memorization = () => {
   const [revision, setRevision] = useState(false);
   const [isQuestion, setIsQuestion] = useState(true);
   const [position, setPosition] = useState(1);
-  const [questions, setQuestions] = useState(Array(10).fill('undefined'));
-  const [answers, setAnswers] = useState(Array(10).fill('undefined'));
+  const [questions, setQuestions] = useState(Array(10).fill());
+  const [answers, setAnswers] = useState(Array(10).fill());
   const [hits, setHits] = useState(Array(10).fill(undefined));
   const [currentValue, setCurrentValue] = useState(undefined);
   const [enableTest, setEnableTest] = useState(false);
   const [enableRevision, setEnableRevision] = useState(false);
 
+  //local save
+  const salveTreino = async () => {
+    const flashCards = {
+      questions,
+      answers,
+    };
+    await AsyncStorage.setItem(
+      '@MemorizationTrainer',
+      JSON.stringify(flashCards),
+    );
+  };
+
+  //load local
+  useEffect(() => {
+    const bootstrap = async () => {
+      try {
+        const flashCardsStorageString = await AsyncStorage.getItem(
+          '@MemorizationTrainer',
+        );
+        const flashCards = JSON.parse(flashCardsStorageString);
+        setAnswers(flashCards.answers);
+        setQuestions(flashCards.questions);
+        AsyncStorage.clear();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    bootstrap();
+  }, []);
+
   //enable test
   useEffect(() => {
     if (answers.every(answer => answer !== undefined)) {
+      salveTreino();
       setEnableTest(true);
     } else {
       setEnableTest(false);
@@ -37,6 +69,7 @@ const Memorization = () => {
 
   //update edit or not edit card
   useEffect(() => {
+    salveTreino()
     edit
       ? incrementArray(
           currentValue,
