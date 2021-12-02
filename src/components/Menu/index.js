@@ -26,9 +26,6 @@ const Menu = ({
     setText3('Revisar');
     setEnableButtonTest(false);
     const clean = Array(10).fill(undefined);
-    console.log(
-      'Cliquei no cleaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan ' + clean,
-    );
     setHits(clean);
   };
 
@@ -43,8 +40,7 @@ const Menu = ({
     if (text3 == 'Testar') handleTest();
     else handleRevision();
   };
-  console.log('enableButtonTest ' + enableButtonTest);
-  console.log('enableButtonRevision ' + enableButtonRevision);
+  
   return (
     <Styled.Container>
       <Styled.Button>
