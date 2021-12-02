@@ -9,7 +9,7 @@ import * as Styled from './styles';
 
 const Memorization = () => {
   const [edit, setEdit] = useState(true);
-  const [test, setTest] = useState(true);
+  const [test, setTest] = useState(false);
   const [revision, setRevision] = useState(false);
   const [isQuestion, setIsQuestion] = useState(true);
   const [position, setPosition] = useState(1);
@@ -17,18 +17,22 @@ const Memorization = () => {
   const [answers, setAnswers] = useState(Array(10).fill('undefined'));
   const [hits, setHits] = useState(Array(10).fill(undefined));
   const [currentValue, setCurrentValue] = useState(undefined);
-  const [hitOrMiss, setHitOrMiss] = useState(undefined);
+  const [enableTest, setEnableTest] = useState(false);
+  const [enableRevision, setEnableRevision] = useState(false);
 
   //enable test
   useEffect(() => {
-    if (answers.every(answer => answer !== undefined)) setTest(true);
-    else setTest(false);
+    if (answers.every(answer => answer !== undefined)) {
+      setEnableTest(true);
+    } else {
+      setEnableTest(false);
+    }
   }, [answers]);
 
   //enable revision
   useEffect(() => {
-    if (hits.every(hit => hit !== undefined)) setRevision(true);
-    else setRevision(false);
+    if (hits.every(hit => hit !== undefined)) setEnableRevision(true);
+    else setEnableRevision(false);
   }, [hits]);
 
   //update edit or not edit card
@@ -109,10 +113,13 @@ const Memorization = () => {
       <Menu
         edit={edit}
         setEdit={setEdit}
-        test={test}
         setTest={setTest}
-        revision={revision}
         setRevision={setRevision}
+        enableButtonTest={enableTest}
+        setEnableButtonTest={setEnableTest}
+        enableButtonRevision={enableRevision}
+        setEnableButtonRevision={setEnableRevision}
+        setHits={setHits}
       />
     </Styled.Container>
   );
