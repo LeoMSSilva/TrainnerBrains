@@ -9,14 +9,12 @@ import * as Styled from './styles';
 
 const FastReading = () => {
   const [status, setStatus] = useState(true);
-  const [text, setText] = useState(
-    'Texto de exemplo usando o alfabeto com tamanho de 37 palavras: a b c d e f g h i j k l m n o p q r s t u v w x y z',
-  );
+  const [text, setText] = useState('Cole aqui o texto para a leitura');
   const [words, setWords] = useState([]);
   const [currentWord, setCurrentWord] = useState(' ');
   const [amountOfWords, setAmountOfWords] = useState(300);
   const [timeWordRead, setTimeWordRead] = useState(0);
-  const [positionOfArray, setPositionOfArray] = useState(0);
+  const [positionOfArray, setPositionOfArray] = useState(nextPositionArray);
 
   const isFinalWords = () => positionOfArray < words.length;
 

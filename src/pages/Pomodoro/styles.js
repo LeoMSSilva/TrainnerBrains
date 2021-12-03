@@ -19,15 +19,6 @@ export const Row = styled.View`
   padding: 0px 10px;
 `;
 
-export const Row = styled.View`
-  padding: 30px 10px;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0px 10px;
-`;
-
 export const Status = styled.Text`
   font-size: 32px;
   font-weight: 700;

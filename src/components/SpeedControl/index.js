@@ -4,8 +4,8 @@ import * as Styled from './styles';
 const SpeedControl = ({value, setValue}) => {
   const max = 1500;
   const min = 50;
-  const increment = () => value < max && setValue(value => value + 1);
-  const decrement = () => value > min && setValue(value => value - 1);
+  const increment = () => value < max && setValue(value => value + 10);
+  const decrement = () => value > min && setValue(value => value - 10);
   const hadleOnChangeText = value => setValue(value);
   return (
     <Styled.Container>

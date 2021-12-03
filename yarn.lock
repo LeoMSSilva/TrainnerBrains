@@ -3133,9 +3133,9 @@ flatted@^3.1.0:
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
 flow-parser@0.*:
-  version "0.165.1"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.165.1.tgz#e420c560d0c9bd0e546b9f1b79afed37174298c5"
-  integrity sha512-vz/5MZIePDCZO9FfnRaH398cc+XSwtgoUzR6pC5zbekpk5ttCaXOnxypho+hb0NzUyQNFV+6vpU8joRZ1llrCw==
+  version "0.166.0"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.166.0.tgz#0c0998af887e9476ef742fad94b7d32da6c7be24"
+  integrity sha512-YZCDEORZNCp0wTPSqcuYSg7W4cwWdVpArjAiy0tgY712oJvWiKAxaoSp+64GQmycDUpQiq1gtbupBdGg8Mp3bA==
 
 flow-parser@^0.121.0:
   version "0.121.0"
@@ -4343,9 +4343,9 @@ jetifier@^1.6.2:
   integrity sha512-3Zi16h6L5tXDRQJTb221cnRoVG9/9OvreLdLU2/ZjRv/GILL+2Cemt0IKvkowwkDpvouAU1DQPOJ7qaiHeIdrw==
 
 joi@^17.2.1:
-  version "17.4.3"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.3.tgz#462941fd994f11fcb92f59ba9f004706b9a45d17"
-  integrity sha512-8W3oOogFRuy2aLAdlhMpzS4fNBIMiyIa3xBaBYMFgA272/d5sob1DAth6jjo+5VrOlzbEgmbBGbU4cLrffPKog==
+  version "17.5.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.5.0.tgz#7e66d0004b5045d971cf416a55fb61d33ac6e011"
+  integrity sha512-R7hR50COp7StzLnDi4ywOXHrBrgNXuUUfJWIR5lPY5Bm/pOD3jZaTwpluUXVLRWcoWZxkrHBBJ5hLxgnlehbdw==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"

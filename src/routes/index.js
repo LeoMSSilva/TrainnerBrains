@@ -16,7 +16,7 @@ const Routes = () => {
       <Navigator
         initialRouteName="Welcome"
         screenOptions={{
-          headerMode: 'none',
+          headerShown: false,
         }}>
         <Screen name="Welcome" component={Welcome} />
         <Screen name="SelectTraining" component={SelectTraining} />
