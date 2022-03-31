@@ -22,7 +22,7 @@ const Memorization = () => {
   const [enableRevision, setEnableRevision] = useState(false);
 
   //local save
-  const salveTreino = async () => {
+  const saveTraining = async () => {
     const flashCards = {
       questions,
       answers,
@@ -40,10 +40,12 @@ const Memorization = () => {
         const flashCardsStorageString = await AsyncStorage.getItem(
           '@MemorizationTrainer',
         );
-        const flashCards = JSON.parse(flashCardsStorageString);
-        setAnswers(flashCards.answers);
-        setQuestions(flashCards.questions);
-        AsyncStorage.clear();
+        if (!Object.is(null, flashCardsStorageString)) {
+          const flashCards = JSON.parse(flashCardsStorageString);
+          setAnswers(flashCards.answers);
+          setQuestions(flashCards.questions);
+          AsyncStorage.clear();
+        }
       } catch (error) {
         console.log(error);
       }
@@ -54,7 +56,7 @@ const Memorization = () => {
   //enable test
   useEffect(() => {
     if (answers.every(answer => answer !== undefined)) {
-      salveTreino();
+			saveTraining();
       setEnableTest(true);
     } else {
       setEnableTest(false);
@@ -69,7 +71,7 @@ const Memorization = () => {
 
   //update edit or not edit card
   useEffect(() => {
-    salveTreino()
+    saveTraining();
     edit
       ? incrementArray(
           currentValue,
@@ -111,7 +113,7 @@ const Memorization = () => {
     <Styled.Container>
       <Styled.Row>
         <ButtonGoBack />
-        <Title text="MemorizationTrainner" />
+        <Title text="MemorizationTrainer" />
       </Styled.Row>
 
       <Styled.Col>
