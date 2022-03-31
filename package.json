@@ -1,5 +1,5 @@
 {
-  "name": "TrainnerBrains",
+  "name": "trainer-brains",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,27 +11,27 @@
     "clean": "rm -rf node_modules yarn.lock && cd ios && rm -rf Pods Podfile.lock && cd ../android/app && rm -rf build && cd .. && rm -rf .gradle && cd .. && yarn && cd ios && pod install"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.14",
+    "@react-native-async-storage/async-storage": "^1.17.2",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
-    "react": "17.0.2",
-    "react-native": "0.66.1",
+    "react": "18.0.0",
+    "react-native": "0.68.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.9.0",
-    "styled-components": "^5.3.3"
+    "react-native-screens": "^3.13.1",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/runtime": "^7.15.4",
+    "@babel/core": "^7.17.8",
+    "@babel/runtime": "^7.17.8",
     "@react-native-community/eslint-config": "^3.0.1",
-    "babel-jest": "^27.3.1",
-    "eslint": "^8.1.0",
-    "jest": "^27.3.1",
-    "metro-react-native-babel-preset": "^0.66.2",
-    "react-native-splash-screen": "^3.2.0",
-    "react-native-vector-icons": "^9.0.0",
-    "react-test-renderer": "17.0.2"
+    "babel-jest": "^27.5.1",
+    "eslint": "^8.12.0",
+    "jest": "^27.5.1",
+    "metro-react-native-babel-preset": "^0.70.0",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-vector-icons": "^9.1.0",
+    "react-test-renderer": "18.0.0"
   },
   "jest": {
     "preset": "react-native"
