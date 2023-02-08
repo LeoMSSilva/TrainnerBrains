@@ -28,7 +28,7 @@
 
 # :house: About
 
-This project was developed with **JavaScript** and **React Native** frameworks.
+This project was developed with **TypeScript** and **React Native** frameworks.
 
 I used **React Native Splash Screen** to create an opening.
 
@@ -97,7 +97,7 @@ and on the other:
 
 # :computer: Techs
 
-- JavaScript
+- TypeScript
 - React
 - React-native
 - Styled-components

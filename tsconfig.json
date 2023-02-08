@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "target": "es2021",
+    "strict": true,
+    "removeComments": true,
+  },
+  "extends": "@tsconfig/react-native/tsconfig.json"
+}
