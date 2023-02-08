@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useClipboard } from '@react-native-clipboard/clipboard';
+
 import { ButtonGoBack } from '../../components/ButtonGoBack';
 import { ButtonPlayer } from '../../components/ButtonPlayer';
 import { Input } from '../../components/Input';
@@ -12,7 +14,7 @@ const minuteInMilliseconds = 60000;
 
 export const FastReading = () => {
   const [activeRead, setActiveRead] = useState(false);
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useClipboard();
   const [words, setWords] = useState<string[]>([]);
   const [readPosition, setReadPosition] = useState<number>(0);
   const [currentWord, setCurrentWord] = useState<string>('');
